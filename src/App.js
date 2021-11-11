@@ -26,9 +26,9 @@ class App extends Component {
     const newContact = { ...data, id: uuidv4() };
 
     if (
-      contacts
-        .map(contact => contact.name.toLowerCase())
-        .includes(data.name.toLowerCase())
+      contacts.find(
+        contact => contact.name.toLowerCase() === data.name.toLowerCase(),
+      )
     ) {
       alert(`${data.name} is already in contacts`);
     } else {
